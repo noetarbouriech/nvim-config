@@ -12,10 +12,11 @@ map('n', '<leader>ft', '<cmd>lua require("telescope.builtin").treesitter()<cr>',
 map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
 map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
 
-map('n', '<silent>[g', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-map('n', '<silent>]g', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+map('n', '<silent>[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
+map('n', '<silent>]d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
 
--- change buffer
+-- buffer
+map('n', '<leader>w', ':bd<cr>', opts)
 map('n', '<leader>h', ':bp<cr>', opts)
 map('n', '<leader>l', ':bn<cr>', opts)
 
@@ -28,6 +29,9 @@ map('t', '<C-t>', '<cmd>lua require("FTerm").toggle()<cr>', opts)
 
 -- doc on K
 map("n", "K", '<cmd>lua require("lspsaga.hover").render_hover_doc()<cr>', opts)
+
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
 -- preview def
 map("n", "gp", "<cmd>Lspsaga preview_definition<cr>", opts)
 -- rename
