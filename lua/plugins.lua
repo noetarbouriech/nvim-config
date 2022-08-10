@@ -41,7 +41,13 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-cmdline'
   use 'onsails/lspkind.nvim'
-  use 'onsails/lspkind.nvim'
+
+  use {
+    'ray-x/go.nvim',
+    config = function()
+      require('go').setup()
+    end
+  }
 
   use 'numToStr/FTerm.nvim'
 

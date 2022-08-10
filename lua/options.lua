@@ -40,3 +40,5 @@ vim.cmd("sign define DiagnosticSignHint text= texthl=DiagnosticSignHint")
 -- Colorscheme
 vim.cmd("colorscheme kanagawa")
 opt.termguicolors = true
+
+vim.api.nvim_create_autocmd("BufWritePre", { command = "lua require('go.format').gofmt()", pattern = "*.go" })
