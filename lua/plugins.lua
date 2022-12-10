@@ -99,12 +99,12 @@ return require('packer').startup(function(use)
       require('mason-lspconfig').setup()
     end
   }
-  use {
-    'ggandor/leap.nvim',
-    config = function()
-      require('leap').add_default_mappings()
-    end
-  }
+  -- use {
+  --   'ggandor/leap.nvim',
+  --   config = function()
+  --     require('leap').add_default_mappings()
+  --   end
+  -- }
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -112,6 +112,13 @@ return require('packer').startup(function(use)
       require("todo-comments").setup()
     end
   }
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup()
+    end
+  })
 
   if packer_bootstrap then
     require('packer').sync()
