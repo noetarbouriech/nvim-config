@@ -53,13 +53,12 @@ return require('packer').startup(function(use)
 
   use 'glepnir/lspsaga.nvim'
 
-  -- doesn't work
-  -- use {
-  --   'lukas-reineke/indent-blankline.nvim',
-  --   config = function()
-  --     require('indent-blankline').setup()
-  --   end
-  -- }
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('indent_blankline').setup()
+    end
+  }
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -87,6 +86,31 @@ return require('packer').startup(function(use)
         }
       })
     end,
+  }
+  use {
+    'williamboman/mason.nvim',
+    config = function()
+      require('mason').setup()
+    end
+  }
+  use {
+    'williamboman/mason-lspconfig.nvim',
+    config = function()
+      require('mason-lspconfig').setup()
+    end
+  }
+  use {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').add_default_mappings()
+    end
+  }
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup()
+    end
   }
 
   if packer_bootstrap then
