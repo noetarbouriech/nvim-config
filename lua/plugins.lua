@@ -119,6 +119,24 @@ return require('packer').startup(function(use)
         require("nvim-surround").setup()
     end
   })
+  use 'theprimeagen/harpoon'
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+  use 'arjunmahishi/flow.nvim'
+	use { 'michaelb/sniprun', run = 'bash ./install.sh'}
+  use 'folke/zen-mode.nvim'
+  use { "nvim-telescope/telescope-file-browser.nvim" }
+  use({
+    "edluffy/hologram.nvim",
+    config = function()
+        require("hologram").setup({
+          auto_display = true -- WIP automatic markdown image display, may be prone to breaking
+        })
+    end
+  })
+
 
   if packer_bootstrap then
     require('packer').sync()

@@ -2,15 +2,17 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true, expr = false }
 
 -- Leader key
-map('n', '<Space>', '', {})
 vim.g.mapleader = ' '
+map('n', '<Space>', '', {})
 
 -- Telescope
 map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>', opts)
+map('n', '<C-p>', '<cmd>lua require("telescope.builtin").git_files()<cr>', opts)
 map('n', '<leader>fF', '<cmd>lua require("telescope.builtin").find_files({ hidden = true, no_ignore = true })<cr>', opts)
 map('n', '<leader>ft', '<cmd>lua require("telescope.builtin").treesitter()<cr>', opts)
 map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
-map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
+map('n', '<leader>fb','<cmd>lua require "telescope".extensions.file_browser.file_browser()<cr>',  opts)
+map('n', '<leader>fB', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
 
 map('n', '<silent>[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
 map('n', '<silent>]d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
