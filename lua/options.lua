@@ -1,30 +1,27 @@
-local g = vim.g
-local opt = vim.opt
-local hl = vim.api.nvim_set_hl
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.wrap = false
+vim.opt.showmode = false
+vim.opt.signcolumn = "yes"
+vim.opt.updatetime = 300
+vim.opt.shortmess:append("c")
+vim.opt.clipboard = "unnamedplus"
 
-opt.number = true
-opt.relativenumber = true
-opt.wrap = false
-opt.showmode = false
-opt.signcolumn = "yes"
-opt.updatetime = 300
-opt.shortmess:append "c"
+vim.opt.completeopt = "menuone,noinsert,noselect"
 
-opt.completeopt = "menuone,noinsert,noselect"
+vim.opt.smartindent = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 
-opt.smartindent = true
-opt.expandtab = true
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
-
-opt.hlsearch = false
-g.netrw_banner = 0
+vim.opt.hlsearch = false
+vim.g.netrw_banner = 0
 
 vim.diagnostic.config({
-    virtual_text = false,
-    virtual_lines = true,
-    signs = true
+	virtual_text = false,
+	virtual_lines = true,
+	signs = true,
 })
 
 -- relative on normal mode only
@@ -39,6 +36,6 @@ vim.cmd("sign define DiagnosticSignHint text= texthl=DiagnosticSignHint")
 
 -- Colorscheme
 vim.cmd("colorscheme kanagawa")
-opt.termguicolors = true
+vim.opt.termguicolors = true
 
 vim.api.nvim_create_autocmd("BufWritePre", { command = "lua require('go.format').gofmt()", pattern = "*.go" })
