@@ -56,6 +56,9 @@ map("n", "<C-b>", '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)
 map("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 
+-- Obsidian
+map("n", "<leader>nn", "<cmd>ObsidianNew<CR>", opts)
+
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
