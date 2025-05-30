@@ -31,6 +31,7 @@ require("lazy").setup({
 	require("plugins.lsp"), -- LSP
 	require("plugins.telescope"), -- LSP
 	require("plugins.obsidian"), -- Obsidian
+	require("plugins.markview"), -- Markview
 
 	{ -- Comments
 		"numToStr/Comment.nvim",
@@ -133,12 +134,12 @@ require("lazy").setup({
 		end,
 	},
 
-	{ -- Image support in markdown
-		"3rd/image.nvim",
-		config = function()
-			-- ...
-		end,
-	},
+	-- { -- Image support in markdown
+	-- 	"3rd/image.nvim",
+	-- 	config = function()
+	-- 		-- ...
+	-- 	end,
+	-- },
 
 	{ -- Markdown preview
 		"toppair/peek.nvim",
@@ -228,4 +229,50 @@ require("lazy").setup({
 			"rcarriga/nvim-notify",
 		},
 	},
+	{
+		"allaman/emoji.nvim",
+		version = "1.0.0", -- optionally pin to a tag
+		ft = "markdown", -- adjust to your needs
+		dependencies = {
+			-- optional for nvim-cmp integration
+			"hrsh7th/nvim-cmp",
+			-- optional for telescope integration
+			"nvim-telescope/telescope.nvim",
+		},
+		opts = {
+			-- default is false
+			enable_cmp_integration = true,
+		},
+		config = function(_, opts)
+			require("emoji").setup(opts)
+			-- optional for telescope integration
+			require("telescope").load_extension("emoji")
+		end,
+	},
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false, -- Recommended
+		-- ft = "markdown" -- If you decide to lazy-load anyway
+
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+	-- {
+	-- 	"3rd/image.nvim",
+	-- 	dependencies = {
+	-- 		"leafo/magick",
+	-- 		{
+	-- 			"vhyrro/luarocks.nvim",
+	-- 			opts = {
+	-- 				rocks = {
+	-- 					hererocks = true,
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
+	-- 	opts = {
+	-- 		-- image.nvim config
+	-- 	},
+	-- },
 })

@@ -12,6 +12,7 @@ return {
 				"lua",
 				"python",
 				"yaml",
+				"latex",
 				"html",
 				"css",
 				"svelte",

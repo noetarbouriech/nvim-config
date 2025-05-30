@@ -26,8 +26,7 @@ return {
 				},
 			},
 
-			notes_subdir = "10.inbox",
-			new_notes_location = "notes_subdir",
+			new_notes_location = "current_dir",
 			prepend_note_id = true,
 
 			-- Optional, alternatively you can customize the frontmatter data.
@@ -77,6 +76,13 @@ return {
 			-- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
 			-- way then set 'mappings = {}'.
 			mappings = {
+				-- Overrides the '<leader>ff' mapping to search for obsidian notes
+				["<leader>ff"] = {
+					action = function()
+						return "<cmd>ObsidianQuickSwitch<cr>"
+					end,
+					opts = { noremap = false, expr = true, buffer = true },
+				},
 				-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
 				["gf"] = {
 					action = function()
